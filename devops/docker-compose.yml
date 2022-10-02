@@ -1,0 +1,39 @@
+version: '3'
+services:
+  golang:
+    container_name: golang
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+      - "8080:8080"
+      - "3000:3000"
+      - "4000:4000"
+    volumes:
+      - ${PWD}/../data:/usr/src/app
+    stdin_open: true
+    tty: true
+
+  database:
+    container_name: postgres
+    image: postgres
+    env_file:
+      - .env.dev.database
+    ports:
+      - "5432:5432"
+    volumes:
+      - golang-db-data:/var/lib/postgresql/data  
+  # database:
+  #   image: mongo
+  #   volumes:
+  #     - ${PWD}/data/mongodb/mongod.conf:/etc/mongod.conf
+
+  #   ports:
+  #     - "27017:27017"
+  #   stdin_open: true
+  #   tty: true
+  #   env_file:
+  #     - ${PWD}/mongodb/mongodb.env
+volumes:
+  golang-db-data:   
