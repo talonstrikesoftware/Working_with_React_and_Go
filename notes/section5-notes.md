@@ -19,4 +19,8 @@
 - hit: `localhost:4000/status`
   
 38: Models
+- created the `models` directory and the three models objects: `Movie`, `Genre`, `MovieGenre`
+
+
 39: Setting up a simple API router
+- set up api call for `getOneMovie` and `getAllMovies`

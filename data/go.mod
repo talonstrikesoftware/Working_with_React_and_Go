@@ -1,4 +1,5 @@
-module backend
+module github.com/talonstrikesoftware/backend
+
 
 go 1.19
 
