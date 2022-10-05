@@ -24,3 +24,8 @@
 
 39: Setting up a simple API router
 - set up api call for `getOneMovie` and `getAllMovies`
+
+40: Improved error handling
+- set up in `utilities.go` ability to return an error message as json
+
+41: Creating the database
