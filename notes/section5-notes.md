@@ -63,5 +63,9 @@
   - you can keep the item from being included in the json
 
 45: An aside: cleaning up our JSON feed
+- wants to avoid showing genres as an array
+- changed MovieGenre to `map[int]string` 
+- now we just get an array of the genre names
+
 46: Getting all movies as JSON
 47: Next Steps
