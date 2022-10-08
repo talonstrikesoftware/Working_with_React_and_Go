@@ -68,4 +68,7 @@
 - now we just get an array of the genre names
 
 46: Getting all movies as JSON
+- Goal is to complete the All function
+- `localhost:4000/v1/movies`
+  
 47: Next Steps
