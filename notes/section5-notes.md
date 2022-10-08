@@ -72,3 +72,5 @@
 - `localhost:4000/v1/movies`
   
 47: Next Steps
+- does some cleanup
+- add stub functions for other CRUD operations, delete, insert, update, search
