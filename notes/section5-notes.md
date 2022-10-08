@@ -44,7 +44,24 @@
   - `postgres://admin:example@postgres/go_movies?sslmode=disable`
 
 43: Database functions & a challenge
+- created the `Get` and `All` functions in movies-db.go to start an API
+- updated main.go application struct to include a models property
+  - the import for models is `github.com/talonstrikesoftware/backend/models`
+- `localhost:4000/v1/movie/1` 
+- challenge
+  - modify movie-db.go Get function so that after get movie get the genres
+  - my attempt was to use this sql:
+    - `select genres.id, genres.genre_name, genres.created_at, genres.updated_at from genres INNER JOIN  movie_genre ON genres.id = movie_genre.genre_id WHERE movie_genre.movie_id = $1`
+    - create the genres slice and add that to the movie:
+      - `movie.MovieGenre = genres` 
+    - I don't know if that worked, went on to the reveal
+  
 44: Solution to challenge
+- Turns out I didn't need to do the inner join, as Movie has a []MovieGenre not a []Genre
+- by doing this in the models:
+  - 	UpdatedAt time.Time `json:"-"`
+  - you can keep the item from being included in the json
+
 45: An aside: cleaning up our JSON feed
 46: Getting all movies as JSON
 47: Next Steps

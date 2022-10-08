@@ -1,7 +1,22 @@
 package models
 
-import "time"
+import (
+	"time"
+	"database/sql"
+)
+// Modesl is the wrapper for database
+type Models struct {
+	DB DBModel
+}
 
+// NewModels returns models with db pool
+func NewModels(db *sql.DB) Models {
+	return Models {
+		DB: DBModel{DB: db},
+	}
+}
+
+// Movie is the type for movies
 type Movie struct {
 	ID int `json:"id"`
 	Title string `json:"title"`
@@ -11,24 +26,26 @@ type Movie struct {
 	Runtime int `json:"runtime"`
 	Rating int `json:"rating"`
 	MPAARating string `json:"mpaa_rating"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"update_at"`
-	MovieGenre []MovieGenre `json:"-"`
+	CreatedAt time.Time `json:"-"`
+	UpdatedAt time.Time `json:"-"`
+	MovieGenre []MovieGenre `json:"genres"`
 }
 
+// Genre is the type for genres
 type Genre struct {
-	ID int `json:"id"`
+	ID int `json:"-"`
 	GenreName string `json:"genre_name"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"update_at"`
+	CreatedAt time.Time `json:"-"`
+	UpdatedAt time.Time `json:"-"`
 
 }
 
+// MovieGenre is the type for movie genres
 type MovieGenre struct {
-	ID int `json:"id"`
-	MovieID int `json:"movie_id"`
-	GenreID int `json:"genere_id"`
+	ID int `json:"-"`
+	MovieID int `json:"-"`
+	GenreID int `json:"-"`
 	Genre Genre `json:"genere"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"update_at"`
+	CreatedAt time.Time `json:"-"`
+	UpdatedAt time.Time `json:"-"`
 }
