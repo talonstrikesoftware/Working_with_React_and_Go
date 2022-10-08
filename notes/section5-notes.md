@@ -29,3 +29,22 @@
 - set up in `utilities.go` ability to return an error message as json
 
 41: Creating the database
+- will use `go_movies.sql` to seed the database
+- start database client (postico)
+- create database `go_movies`
+- `psql -d go_movies -f go_movies.sql`
+
+42: Creating our connection pool and connecting to the database
+- add driver
+  - `go get -u github.com/lib/pq@v1.10.0` 
+- added imports to main.go
+- updated config var
+- added func to create the connection pool 
+- connection string that worked is:
+  - `postgres://admin:example@postgres/go_movies?sslmode=disable`
+
+43: Database functions & a challenge
+44: Solution to challenge
+45: An aside: cleaning up our JSON feed
+46: Getting all movies as JSON
+47: Next Steps
