@@ -19,6 +19,10 @@ Front-matter
 - Implement showing a single movie retrieved from the api
   
 52: Getting started with Movies by Genre
+- Code cleanup/refactoring
+  - removed Categories.js - won't be needed
+  - Categories will now be called Genres
+  - Created `Genres.js` instead
 53: Getting Genres from back end
 54: Displaying the list of Genres
 55: Getting movies by Genre
