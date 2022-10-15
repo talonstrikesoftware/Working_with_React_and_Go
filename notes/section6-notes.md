@@ -13,6 +13,8 @@ Front-matter
 - Here we load up the movies
 
 50: Checking for errors
+- Simulate an network error by changing the url to be something no existent
+- 
 51: Displaying one movie
 52: Getting started with Movies by Genre
 53: Getting Genres from back end
