@@ -23,7 +23,11 @@ Front-matter
   - removed Categories.js - won't be needed
   - Categories will now be called Genres
   - Created `Genres.js` instead
+
 53: Getting Genres from back end
+- now setup the api route for extracting genres from database
+- At this point can retrieve genres from database and return as json 
+
 54: Displaying the list of Genres
 55: Getting movies by Genre
 56: Displaying movies by Genre
