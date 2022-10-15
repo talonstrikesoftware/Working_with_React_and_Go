@@ -42,3 +42,4 @@ Front-matter
 - Added showing the genre name when showing a single genre by passing it to the component
   
 58: Code clean up
+- updated the lists in Movies and Genres to look better using bootstrap
