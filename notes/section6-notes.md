@@ -30,8 +30,10 @@ Front-matter
 
 54: Displaying the list of Genres
 - Update client to hook to api and display list of genres 
-- 
+  
 55: Getting movies by Genre
+- Added a genre parameter to `movies-db.All` which allows to get movies by a genre
+  
 56: Displaying movies by Genre
 57: Showing Genre name - an alternative to lifting state
 58: Code clean up
