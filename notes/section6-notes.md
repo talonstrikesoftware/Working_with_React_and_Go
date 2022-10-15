@@ -14,8 +14,10 @@ Front-matter
 
 50: Checking for errors
 - Simulate an network error by changing the url to be something no existent
-- 
+  
 51: Displaying one movie
+- Implement showing a single movie retrieved from the api
+  
 52: Getting started with Movies by Genre
 53: Getting Genres from back end
 54: Displaying the list of Genres
