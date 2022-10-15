@@ -35,5 +35,10 @@ Front-matter
 - Added a genre parameter to `movies-db.All` which allows to get movies by a genre
   
 56: Displaying movies by Genre
+- Finishes up the client side of this by creating a OneGenre component
+  
 57: Showing Genre name - an alternative to lifting state
+- fixed a SQL error from lesson 55
+- Added showing the genre name when showing a single genre by passing it to the component
+  
 58: Code clean up
