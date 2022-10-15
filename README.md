@@ -3,12 +3,24 @@ Purpose:
 Date Created:
 
 ## Startup
+### container startup
 ```bash
 cd devops
 docker compose build -no-cache
 docker compose up -d
 docker compose exec golang bash
 ```
+
+### backend startup
+- in container
+- `/usr/src/app# go run ./cmd/api` 
+
+### client startup
+- in container
+  ```bash
+    export NODE_OPTIONS=--openssl-legacy-provider
+    npm start # localhost:3000
+  ```
 
 #### Bookings
 This is the bookings and reservations project

@@ -7,6 +7,11 @@ Front-matter
 - To do this create a `middleware.go` file and intercept the Response and add a header for "Access-Control-Allow-Origin" of "*"
 
 49: Getting the list of movies
+- connect front end with back end
+- Since code is class based I have a choice, I can either keep following the tutorial and keep the code class based or start the conversion
+  - Decided to stay with class based and I will convert later.
+- Here we load up the movies
+
 50: Checking for errors
 51: Displaying one movie
 52: Getting started with Movies by Genre

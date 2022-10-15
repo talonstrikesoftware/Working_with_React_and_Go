@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func (app *application) routes() *http.Handler {
+func (app *application) routes() http.Handler {
 	router := httprouter.New()
 
 	router.HandlerFunc(http.MethodGet, "/status", app.statusHandler)
