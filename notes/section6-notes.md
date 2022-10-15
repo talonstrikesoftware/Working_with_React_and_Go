@@ -29,6 +29,8 @@ Front-matter
 - At this point can retrieve genres from database and return as json 
 
 54: Displaying the list of Genres
+- Update client to hook to api and display list of genres 
+- 
 55: Getting movies by Genre
 56: Displaying movies by Genre
 57: Showing Genre name - an alternative to lifting state
