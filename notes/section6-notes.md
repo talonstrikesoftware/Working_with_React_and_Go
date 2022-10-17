@@ -20,7 +20,7 @@ Front-matter
   
 52: Getting started with Movies by Genre
 - Code cleanup/refactoring
-  - removed Categories.js - won't be needed
+  - removed `Categories.js` - won't be needed
   - Categories will now be called Genres
   - Created `Genres.js` instead
 
