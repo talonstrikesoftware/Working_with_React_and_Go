@@ -6,6 +6,9 @@ Front-matter
 - create a form to add or edit a movie - `EditMovie.js`
   
 60: Making our form a controlled component, and binding it to state
+- have to use htmlFor for for in html because of jsx constraint
+- Here the form elements is bound to state so the internal state is updated as stuff is typed in
+
 61: Making form inputs reusable components and a Challenge
 62: Solution to Challenge
 63: Creating a reusable select component
