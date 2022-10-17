@@ -10,6 +10,9 @@ Front-matter
 - Here the form elements is bound to state so the internal state is updated as stuff is typed in
 
 61: Making form inputs reusable components and a Challenge
+- made a POJS file for a stand alone input
+- Challenge is to do the same thing for a textarea
+
 62: Solution to Challenge
 63: Creating a reusable select component
 64: Pre-populating the form with an existing movie
