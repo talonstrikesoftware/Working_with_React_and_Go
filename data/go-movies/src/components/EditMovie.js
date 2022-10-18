@@ -27,6 +27,7 @@ export default class EditMovie extends Component {
         { id: 'R', value: 'R' },
         { id: 'NC17', value: 'NC17' },
       ],
+      errors: []
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -36,6 +37,17 @@ export default class EditMovie extends Component {
   handleSubmit = (evt) => {
     evt.preventDefault();
   
+    // client side validation
+    let errors = [];
+    if (this.state.movie.title === "") {
+      errors.push("title");
+    }
+    this.setState({errors: errors});
+
+    if (errors.length > 0) {
+      return false;
+    }
+
     const data = new FormData(evt.target);
     const payload = Object.fromEntries(data.entries());
 
@@ -59,6 +71,11 @@ export default class EditMovie extends Component {
       [name]: value,
     }));
   };
+
+  hasError(key) {
+    return this.state.errors.indexOf(key) !== -1;
+  }
+
   componentDidMount() {
     const id = this.props.mathc.params.id;
     if (id > 0) {
@@ -115,7 +132,7 @@ export default class EditMovie extends Component {
           <hr />
           <form onSubmit={this.handleSubmit}>
             <input type='hidden' name='id' id='id' value={movie.id} onChange={this.handleChange} />
-            <Input title={'Title'} type={'text'} name={'title'} value={movie.title} handleChange={this.handleChange} />
+            <Input title={'Title'} type={'text'} name={'title'} value={movie.title} handleChange={this.handleChange} className={this.hasError("title") ? "is-invalid" : ""} errorDiv={this.hasError("title") ? "text-danger" : "d-none"} errorMsg={"Please enter a title"}/>
             <Input title={'Release date'} type={'text'} name={'release_date'} value={movie.release_date} handleChange={this.handleChange} />
             <Input title={'Runtime'} type={'text'} name={'runtime'} value={movie.runtime} handleChange={this.handleChange} />
             <Select

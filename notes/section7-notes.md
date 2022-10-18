@@ -27,6 +27,9 @@ Front-matter
 - at this point the endpoint is created and the form submits, but nothing is done with it yet
   
 66: Client side form validation
+- will do one input using Boostrap's logic
+- creates an array of errors and puts in keys for the form values that are in error
+    
 67: Receiving data on the REST back end
 68: Providing feedback with a reusable alert
 69: Editing an existing movie
