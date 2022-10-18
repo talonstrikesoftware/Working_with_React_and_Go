@@ -31,6 +31,9 @@ Front-matter
 - creates an array of errors and puts in keys for the form values that are in error
     
 67: Receiving data on the REST back end
+- to start with we have problems parsing the time parameters
+- chose not to do a decoder on the back end, instead defined a new type in the handlers `MoviePayload`  
+  - We do this to read the JSON payload into this struct 
 68: Providing feedback with a reusable alert
 69: Editing an existing movie
 70: Deleting a movie
