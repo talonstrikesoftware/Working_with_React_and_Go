@@ -20,6 +20,8 @@ Front-matter
 - Made the common select component
   
 64: Pre-populating the form with an existing movie
+- Modify the code to prepopulate the form with an existing movie
+  
 65: Sending data to the REST back end
 66: Client side form validation
 67: Receiving data on the REST back end
