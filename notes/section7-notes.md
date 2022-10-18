@@ -23,6 +23,9 @@ Front-matter
 - Modify the code to prepopulate the form with an existing movie
   
 65: Sending data to the REST back end
+- start working on posting info back to back end
+- at this point the endpoint is created and the form submits, but nothing is done with it yet
+  
 66: Client side form validation
 67: Receiving data on the REST back end
 68: Providing feedback with a reusable alert

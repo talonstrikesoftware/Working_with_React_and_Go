@@ -34,8 +34,21 @@ export default class EditMovie extends Component {
   }
 
   handleSubmit = (evt) => {
-    console.log('Form was submitted');
     evt.preventDefault();
+  
+    const data = new FormData(evt.target);
+    const payload = Object.fromEntries(data.entries());
+
+    const requestOptions = {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    }
+
+    fetch("http://locahost:4000/v1/admin/editmovie",requestOptions)
+      .then(response => response.json())
+      .then(data => {
+
+      });
   };
 
   handleChange = (evt) => {
