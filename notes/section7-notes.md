@@ -14,7 +14,11 @@ Front-matter
 - Challenge is to do the same thing for a textarea
 
 62: Solution to Challenge
+- Showed his solution
+  
 63: Creating a reusable select component
+- Made the common select component
+  
 64: Pre-populating the form with an existing movie
 65: Sending data to the REST back end
 66: Client side form validation

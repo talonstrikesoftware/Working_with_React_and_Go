@@ -3,6 +3,7 @@ import { Fragment } from 'react/cjs/react.production.min';
 import "./EditMovie.css"
 import Input from "./form-components/Input"
 import Textarea from "./form-components/Textarea"
+import Select from "./form-components/Select"
 
 export default class EditMovie extends Component {
   state = {
@@ -25,6 +26,13 @@ export default class EditMovie extends Component {
       },
       isLoaded: false,
       error: null,
+      mpaaOptions: [
+        {id: "G", value: "G"},
+        {id: "PG", value: "PG"},
+        {id: "PG13", value: "PG13"},
+        {id: "R", value: "R"},
+        {id: "NC17", value: "NC17"},
+      ]
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -60,7 +68,8 @@ export default class EditMovie extends Component {
           <Input title={'Title'} type={'text'} name={'title'} value={movie.title} handleChange={this.handleChange} />
           <Input title={'Release date'} type={'text'} name={'release_date'} value={movie.release_date} handleChange={this.handleChange} />
           <Input title={'Runtime'} type={'text'} name={'runtime'} value={movie.runtime} handleChange={this.handleChange} />
-          <div className='mb-3'>
+          <Select title={'MPAA Rating'} name={'mpaa_rating'} options={this.state.mpaaOptions} value={movie.mpaa_rating} handleChange={this.handleChange} placeholder={'Choose...'} />
+          {/* <div className='mb-3'>
             <label htmlFor='mpaa_rating' className='form-label'>
               MPAA Rating
             </label>
@@ -83,7 +92,7 @@ export default class EditMovie extends Component {
               </option>
             </select>
             <input type='text' className='form-control' id='runtime' name='runtime' value={movie.runtime} />
-          </div>
+          </div> */}
           <Input title={'Rating'} type={'text'} name={'rating'} value={movie.rating} handleChange={this.handleChange} />
           <Textarea title={'Description'} name={'description'} rows={3} value={movie.description} handleChange={this.handleChange} />
           <hr />
