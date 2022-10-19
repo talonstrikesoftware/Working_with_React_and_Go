@@ -4,6 +4,7 @@ import './EditMovie.css';
 import Input from './form-components/Input';
 import Textarea from './form-components/Textarea';
 import Select from './form-components/Select';
+import Alert from './ui-components/Alert';
 
 export default class EditMovie extends Component {
   constructor(props) {
@@ -27,7 +28,11 @@ export default class EditMovie extends Component {
         { id: 'R', value: 'R' },
         { id: 'NC17', value: 'NC17' },
       ],
-      errors: []
+      errors: [],
+      alert: {
+        type: 'd-none',
+        alertMessage: '',
+      },
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -36,13 +41,13 @@ export default class EditMovie extends Component {
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-  
+
     // client side validation
     let errors = [];
-    if (this.state.movie.title === "") {
-      errors.push("title");
+    if (this.state.movie.title === '') {
+      errors.push('title');
     }
-    this.setState({errors: errors});
+    this.setState({ errors: errors });
 
     if (errors.length > 0) {
       return false;
@@ -54,12 +59,16 @@ export default class EditMovie extends Component {
     const requestOptions = {
       method: 'POST',
       body: JSON.stringify(payload),
-    }
+    };
 
-    fetch("http://locahost:4000/v1/admin/editmovie",requestOptions)
-      .then(response => response.json())
-      .then(data => {
-
+    fetch('http://locahost:4000/v1/admin/editmovie', requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error) {
+          this.setState({ alert: { type: 'alert-danger', message: data.error.message } });
+        } else {
+          this.setState({ alert: { type: 'alert-success', message: 'Changes saved' } });
+        }
       });
   };
 
@@ -129,10 +138,20 @@ export default class EditMovie extends Component {
       return (
         <Fragment>
           <h2>Add/Edit Movie</h2>
+          <Alert alertType={this.state.alert.type} alertMessage={this.state.alert.message} />
           <hr />
           <form onSubmit={this.handleSubmit}>
             <input type='hidden' name='id' id='id' value={movie.id} onChange={this.handleChange} />
-            <Input title={'Title'} type={'text'} name={'title'} value={movie.title} handleChange={this.handleChange} className={this.hasError("title") ? "is-invalid" : ""} errorDiv={this.hasError("title") ? "text-danger" : "d-none"} errorMsg={"Please enter a title"}/>
+            <Input
+              title={'Title'}
+              type={'text'}
+              name={'title'}
+              value={movie.title}
+              handleChange={this.handleChange}
+              className={this.hasError('title') ? 'is-invalid' : ''}
+              errorDiv={this.hasError('title') ? 'text-danger' : 'd-none'}
+              errorMsg={'Please enter a title'}
+            />
             <Input title={'Release date'} type={'text'} name={'release_date'} value={movie.release_date} handleChange={this.handleChange} />
             <Input title={'Runtime'} type={'text'} name={'runtime'} value={movie.runtime} handleChange={this.handleChange} />
             <Select
@@ -148,9 +167,9 @@ export default class EditMovie extends Component {
             <hr />
             <button classname='btn btn-primary'>Save</button>
           </form>
-          <div className='mt-3'>
+          {/* <div className='mt-3'>
             <pre>{JSON.stringify(this.state, null, 3)}</pre>
-          </div>
+          </div> */}
         </Fragment>
       );
     }

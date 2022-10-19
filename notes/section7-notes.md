@@ -34,8 +34,15 @@ Front-matter
 - to start with we have problems parsing the time parameters
 - chose not to do a decoder on the back end, instead defined a new type in the handlers `MoviePayload`  
   - We do this to read the JSON payload into this struct 
+
+
 68: Providing feedback with a reusable alert
+- add ability to do a modify instead of insert (when editing a movie)
+- added a custom alert component `Alert.js`
+  
 69: Editing an existing movie
+- Here the necessary code is written to do an update of a movie
+  
 70: Deleting a movie
 71: Adding a confirmation step when deleting movies
 72: Implementing delete on the back end
