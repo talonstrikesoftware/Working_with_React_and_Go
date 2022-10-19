@@ -44,6 +44,7 @@ Front-matter
 - Here the necessary code is written to do an update of a movie
   
 70: Deleting a movie
+- Add abiilty to delete a movie
 71: Adding a confirmation step when deleting movies
 72: Implementing delete on the back end
 73: Connecting our delete button to the REST back end

@@ -5,6 +5,7 @@ import Input from './form-components/Input';
 import Textarea from './form-components/Textarea';
 import Select from './form-components/Select';
 import Alert from './ui-components/Alert';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default class EditMovie extends Component {
   constructor(props) {
@@ -127,6 +128,10 @@ export default class EditMovie extends Component {
     }
   }
 
+  confirmDelete = (e) => {
+
+  }
+  
   render() {
     let { movie, isLoaded, error } = this.state;
 
@@ -166,6 +171,12 @@ export default class EditMovie extends Component {
             <Textarea title={'Description'} name={'description'} rows={3} value={movie.description} handleChange={this.handleChange} />
             <hr />
             <button classname='btn btn-primary'>Save</button>
+            <Link to="/admin" className="btn btn-warning ms-1">
+              Cancel
+            </Link>
+            { movie.ID > 0 && (
+              <a href="#!" onClick={() => this.confirmDelete()} className="btn btn-danger ms-1">Delete</a>
+            )}
           </form>
           {/* <div className='mt-3'>
             <pre>{JSON.stringify(this.state, null, 3)}</pre>
