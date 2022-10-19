@@ -55,5 +55,7 @@ Front-matter
 - Implements `DeleteMovie` on backend
   
 73: Connecting our delete button to the REST back end
+- connect delete button to backend
+
 74: Challenge: displaying list of movies to edit
 75: Solution to challenge
