@@ -52,6 +52,8 @@ Front-matter
 - will use `react-confirm-alert` package
 
 72: Implementing delete on the back end
+- Implements `DeleteMovie` on backend
+  
 73: Connecting our delete button to the REST back end
 74: Challenge: displaying list of movies to edit
 75: Solution to challenge
