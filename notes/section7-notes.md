@@ -44,8 +44,13 @@ Front-matter
 - Here the necessary code is written to do an update of a movie
   
 70: Deleting a movie
-- Add abiilty to delete a movie
+- Add ability to delete a movie
+
 71: Adding a confirmation step when deleting movies
+- Explains conditional rendering in JSX 
+- Added confirmation before doing a delete
+- will use `react-confirm-alert` package
+
 72: Implementing delete on the back end
 73: Connecting our delete button to the REST back end
 74: Challenge: displaying list of movies to edit
