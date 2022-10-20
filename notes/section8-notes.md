@@ -26,5 +26,7 @@ Front-matter
 - Added a Login component
 
 78: Getting the JSON Web Token from the back end
+- work on the handleSubmit button in Login.js
+  
 79: Handling a successful login
 80: Adding middleware to check for a valid token
