@@ -1,9 +1,10 @@
 package models
 
 import (
-	"time"
 	"database/sql"
+	"time"
 )
+
 // Modesl is the wrapper for database
 type Models struct {
 	DB DBModel
@@ -48,4 +49,10 @@ type MovieGenre struct {
 	Genre Genre `json:"genere"`
 	CreatedAt time.Time `json:"-"`
 	UpdatedAt time.Time `json:"-"`
+}
+
+type User struct {
+	ID int
+	Email string
+	Password string
 }
