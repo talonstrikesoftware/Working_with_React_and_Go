@@ -29,4 +29,7 @@ Front-matter
 - work on the handleSubmit button in Login.js
   
 79: Handling a successful login
+- dealt with the successful else case of the fetch to handle when a JWT token comes in
+- Note: login is me@here.com:password 
+  
 80: Adding middleware to check for a valid token

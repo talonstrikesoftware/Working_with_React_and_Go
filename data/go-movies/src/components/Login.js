@@ -6,17 +6,17 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       error: null,
       errors: [],
       alert: {
-        type: "d-none",
-        message: ""
-      }
-    }
-    this.handleChange= this.handleChange.bind(this);
-    this.handleSubmit= this.handleSubmit.bind(this);
+        type: 'd-none',
+        message: '',
+      },
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = (event) => {
@@ -24,23 +24,23 @@ export default class Login extends Component {
     let name = event.target.name;
     this.setState((prevState) => ({
       ...prevState,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   handleSubmit = (event) => {
     event.preventDefault();
     let errors = [];
 
-    if (this.state.email === "") {
-      errors.push("email");
+    if (this.state.email === '') {
+      errors.push('email');
     }
 
     if (this.state.password === '') {
       errors.push('password');
     }
 
-    this.setState({errors: errors});
+    this.setState({ errors: errors });
 
     if (errors.length > 0) {
       return false;
@@ -50,26 +50,32 @@ export default class Login extends Component {
     const payload = Object.fromEntries(data.entries());
 
     const requestOptions = {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify(payload),
-    }
+    };
 
-    fetch("http://localhost:4000/v1/signin", requestOptions)
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.error) {
-        this.setState({
-          alert: {
-            type: "alert-danger",
-            message: data.error.message,
-          }
-        })
-      } else {
+    fetch('http://localhost:4000/v1/signin', requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error) {
+          this.setState({
+            alert: {
+              type: 'alert-danger',
+              message: data.error.message,
+            },
+          });
+        } else {
+          this.handleJWTChange(Object.values(data)[0]);
+          this.props.history.push({
+            pathname: "/admin"
+          })
+        }
+      });
+  };
 
-      }
-    })
+  handleJWTChange(jwt) {
+    this.props.handleJWTChange(jwt);
   }
-
   hasError(key) {
     return this.state.errors.indexOf(key) !== -1;
   }
@@ -84,7 +90,7 @@ export default class Login extends Component {
           <Input
             title={'Email'}
             type={'type'}
-            name={'name'}
+            name={'email'}
             handleChange={this.handleChange}
             className={this.hasError('email') ? 'is-invalid' : ''}
             errorDiv={this.hasError('email') ? 'text-danger' : 'd-none'}
@@ -100,7 +106,7 @@ export default class Login extends Component {
             errorMsg={'Please enter a valid password'}
           />
           <hr />
-          <button className="btn btn-primary">Login</button>
+          <button className='btn btn-primary'>Login</button>
         </form>
       </Fragment>
     );
