@@ -58,4 +58,12 @@ Front-matter
 - connect delete button to backend
 
 74: Challenge: displaying list of movies to edit
+- Here I have fixed the bugs from the previous lessons.  The code runs as advertised at this point
+- Challenges:
+  - list the movies under manage catalog
+  - when clicking a movie it should take you to the edit screen
+  - When click on save, should take user back to manage catalog 
+  - do this in Admin.js and EditMovie.js 
+  
 75: Solution to challenge
+- Walked over his solution

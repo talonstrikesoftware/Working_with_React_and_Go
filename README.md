@@ -19,6 +19,7 @@ docker compose exec golang bash
 - in container
   ```bash
     export NODE_OPTIONS=--openssl-legacy-provider
+    cd go-movies
     npm start # localhost:3000
   ```
 

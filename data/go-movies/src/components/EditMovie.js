@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Fragment } from 'react/cjs/react.production.min';
+import React, { Component, Fragment } from 'react';
 import './EditMovie.css';
 import Input from './form-components/Input';
 import Textarea from './form-components/Textarea';
@@ -64,13 +63,20 @@ export default class EditMovie extends Component {
       body: JSON.stringify(payload),
     };
 
-    fetch('http://locahost:4000/v1/admin/editmovie', requestOptions)
+    //    fetch("http://locahost:4000/v1/admin/editmovie", requestOptions)
+    fetch('http://localhost:4000/v1/admin/editmovie', requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data.error) {
-          this.setState({ alert: { type: 'alert-danger', message: data.error.message } });
+          this.setState({
+            alert: { type: 'alert-danger', message: data.error.message },
+          });
         } else {
-          this.setState({ alert: { type: 'alert-success', message: 'Changes saved' } });
+          // just go
+          this.props.history.push({ pathname: '/admin' });
+          // this.setState({
+          //   alert: { type: 'alert-success', message: 'Changes saved' },
+          // });
         }
       });
   };
@@ -79,8 +85,10 @@ export default class EditMovie extends Component {
     let value = evt.target.value;
     let name = evt.target.name;
     this.setState((prevState) => ({
-      ...prevState.movie,
-      [name]: value,
+      movie: {
+        ...prevState.movie,
+        [name]: value,
+      },
     }));
   };
 
@@ -89,7 +97,8 @@ export default class EditMovie extends Component {
   }
 
   componentDidMount() {
-    const id = this.props.mathc.params.id;
+    console.log(this.props);
+    const id = this.props.match.params.id;
     if (id > 0) {
       fetch('http://localhost:4000/v1/movie/' + id)
         .then((response) => {
@@ -131,32 +140,31 @@ export default class EditMovie extends Component {
   }
 
   confirmDelete = (e) => {
-
     confirmAlert({
-      title: "Delete Movie?",
-      message: "Are you sure?",
+      title: 'Delete Movie?',
+      message: 'Are you sure?',
       buttons: [
         {
-          label: "Yes",
+          label: 'Yes',
           onClick: () => {
-            fetch("http://localhost:4000/admin/deletemovie/"+this.state.movie.id, {method: "GET"})
-            .then(response => response.json)
-            .then(data => {
-              if (data.error) {
-                this.setState({alert: {type: "alert-danger", message: data.error.message}})
-              } else {
-                this.props.history.push({ pathname: "/admin"})
-              }
-            })
-          }
+            fetch('http://localhost:4000/v1/admin/deletemovie/' + this.state.movie.id, { method: 'GET' })
+              .then(response => response.json)
+              .then(data => {
+                if (data.error) {
+                  this.setState({ alert: { type: 'alert-danger', message: data.error.message } });
+                } else {
+                  this.props.history.push({ pathname: '/admin' });
+                }
+              });
+          },
         },
         {
-          label: "No",
-          onClick: () => {}
-        }
-      ]
+          label: 'No',
+          onClick: () => {},
+        },
+      ],
     });
-  }
+  };
 
   render() {
     let { movie, isLoaded, error } = this.state;
@@ -196,12 +204,14 @@ export default class EditMovie extends Component {
             <Input title={'Rating'} type={'text'} name={'rating'} value={movie.rating} handleChange={this.handleChange} />
             <Textarea title={'Description'} name={'description'} rows={3} value={movie.description} handleChange={this.handleChange} />
             <hr />
-            <button classname='btn btn-primary'>Save</button>
-            <Link to="/admin" className="btn btn-warning ms-1">
+            <button className='btn btn-primary'>Save</button>
+            <Link to='/admin' className='btn btn-warning ms-1'>
               Cancel
             </Link>
-            { movie.ID > 0 && (
-              <a href="#!" onClick={() => this.confirmDelete()} className="btn btn-danger ms-1">Delete</a>
+            {movie.id > 0 && (
+              <a href='#!' onClick={() => this.confirmDelete()} className='btn btn-danger ms-1'>
+                Delete
+              </a>
             )}
           </form>
           {/* <div className='mt-3'>

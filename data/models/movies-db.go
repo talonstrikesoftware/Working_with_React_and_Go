@@ -221,7 +221,7 @@ func (m *DBModel) UpdateMovie(movie Movie) error {
 		movie.Rating,
 		movie.MPAARating,
 		movie.UpdatedAt,
-		movie.ID
+		movie.ID,
 	)
 
 	if err != nil {
@@ -238,7 +238,7 @@ func (m *DBModel) DeleteMovie(id int) error {
 	stmt := `delete from movies where id = $1`
 
 	_, err := m.DB.ExecContext(ctx, stmt,
-		movie.ID
+		id,
 	)
 
 	if err != nil {

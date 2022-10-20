@@ -3,12 +3,12 @@ package main
 import (
 	"net/http"
 	"strconv"
-
-	//	"time"
+  "log"
+	"time"
 	"errors"
-
+	"encoding/json"
 	"github.com/julienschmidt/httprouter"
-	// "github.com/talonstrikesoftware/backend/models"
+	"github.com/talonstrikesoftware/backend/models"
 )
 
 type jsonResp struct {
@@ -96,6 +96,7 @@ func (app *application) getAllMoviesByGenre(w http.ResponseWriter, r *http.Reque
 }
 func (app *application) deleteMovie(w http.ResponseWriter, r *http.Request) {
 	params := httprouter.ParamsFromContext(r.Context())
+	log.Println("in deleteMovie")
 	id, err := strconv.Atoi(params.ByName("id"))
 	if err != nil {
 		app.errorJSON(w, err)
@@ -141,12 +142,12 @@ func (app *application) editMovie(w http.ResponseWriter, r *http.Request) {
 	
 	var movie models.Movie
 
-	if payload.ID != "0" {
-		id, _ := strconv.Atoi(payload.ID)
-		m, _ := app.models.DB.Get(id)
-		movie = *m // populate movie with existing values
-		movie.UpdatedAt = time.Now()
-	}
+	// if payload.ID != "0" {
+	// 	id, _ := strconv.Atoi(payload.ID)
+	// 	m, _ := app.models.DB.Get(id)
+	// 	movie = *m // populate movie with existing values
+	// 	movie.UpdatedAt = time.Now()
+	// }
 	movie.ID, _ = strconv.Atoi(payload.ID)
 	movie.Title = payload.Title
 	movie.Description = payload.Description
@@ -166,13 +167,13 @@ func (app *application) editMovie(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	} else {
-		err = app.models.DB.UpdateMoview(movie)
+		err = app.models.DB.UpdateMovie(movie)
 		if err != nil {
 			app.errorJSON(w, err)
 			return
 		}
 	}
-	
+
 	ok := jsonResp {
 		OK: true,
 	}
@@ -183,6 +184,7 @@ func (app *application) editMovie(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 }
+
 func (app *application) updateMovie(w http.ResponseWriter, r *http.Request) {
 
 }
