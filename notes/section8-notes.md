@@ -57,4 +57,8 @@ Front-matter
 - Done in Login.js by putting token into LocalStorage
   
 86: Making better error responses from our back end
+- right now we always return a HTTPStatusCode.BadRequest when errors occur - will clean this up
+- to fix this added a third parameter to utilities.go `errorJSON` - called status
+  - Then updated middleware.go to pass in the correct code when desired
+  
 87: Adding images
