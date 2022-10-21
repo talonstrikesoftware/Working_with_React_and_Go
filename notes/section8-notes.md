@@ -62,3 +62,5 @@ Front-matter
   - Then updated middleware.go to pass in the correct code when desired
   
 87: Adding images
+- not as straight forward as we would like
+- Add the image on the home page - did it two ways - in `Home.js` 
