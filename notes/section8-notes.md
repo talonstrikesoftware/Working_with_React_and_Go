@@ -53,6 +53,8 @@ Front-matter
 - Did the challenge 
 
 85: Saving our token when the user leaves the site
-
+- lose login when we got to a different site and come back in - goal is to let user stay logged in
+- Done in Login.js by putting token into LocalStorage
+  
 86: Making better error responses from our back end
 87: Adding images
