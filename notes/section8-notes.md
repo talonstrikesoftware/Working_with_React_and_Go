@@ -33,3 +33,7 @@ Front-matter
 - Note: login is me@here.com:password 
   
 80: Adding middleware to check for a valid token
+- Fixed a mistake at the end of Signin, need to cast the jwtBytes to a string
+- have to add token to requests done in `middleware.go` checkToken
+- shows how to apply middleware only to some routes (in `routes.go`)
+  - simplest way is to install a package that allows chaining middleware: `go get github.com/justinas/alice` 
