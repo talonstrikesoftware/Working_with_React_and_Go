@@ -43,6 +43,7 @@ Front-matter
   - we have to send an appropriate web token
   
 82: Adding redirects for protected components
+- Deal with a redirect so user can't save url when they are logged in and access the protected page when they are logged out
 
 83: Challenge
 84: Solution to Challenge
