@@ -37,3 +37,15 @@ Front-matter
 - have to add token to requests done in `middleware.go` checkToken
 - shows how to apply middleware only to some routes (in `routes.go`)
   - simplest way is to install a package that allows chaining middleware: `go get github.com/justinas/alice` 
+
+81: Protecting the route on our front end
+- send the header from the front end to the back end, done on EditMovie.js
+  - we have to send an appropriate web token
+  
+82: Adding redirects for protected components
+
+83: Challenge
+84: Solution to Challenge
+85: Saving our token when the user leaves the site
+86: Making better error responses from our back end
+87: Adding images
