@@ -46,7 +46,13 @@ Front-matter
 - Deal with a redirect so user can't save url when they are logged in and access the protected page when they are logged out
 
 83: Challenge
+- Manage Catalogue needs to be protected
+- Protect the Delete button as well
+
 84: Solution to Challenge
+- Did the challenge 
+
 85: Saving our token when the user leaves the site
+
 86: Making better error responses from our back end
 87: Adding images

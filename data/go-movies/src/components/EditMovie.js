@@ -58,8 +58,8 @@ export default class EditMovie extends Component {
     const data = new FormData(evt.target);
     const payload = Object.fromEntries(data.entries());
     const myHeaders = new Headers();
-    myHeaders.append("Content-Type","application/json");
-    myHeaders.append("Authorization","Bearer " + this.props.jwt);
+    myHeaders.append('Content-Type', 'application/json');
+    myHeaders.append('Authorization', 'Bearer ' + this.props.jwt);
 
     const requestOptions = {
       method: 'POST',
@@ -102,9 +102,9 @@ export default class EditMovie extends Component {
 
   componentDidMount() {
     console.log(this.props);
-    if (this.props.jwt === "") {
+    if (this.props.jwt === '') {
       this.props.history.push({
-        pathname: "/login",
+        pathname: '/login',
       });
       return;
     }
@@ -157,9 +157,12 @@ export default class EditMovie extends Component {
         {
           label: 'Yes',
           onClick: () => {
-            fetch('http://localhost:4000/v1/admin/deletemovie/' + this.state.movie.id, { method: 'GET' })
-              .then(response => response.json)
-              .then(data => {
+            const myHeaders = new Headers();
+            myHeaders.append('Content-Type', 'application/json');
+            myHeaders.append('Authorization', 'Bearer ' + this.props.jwt);
+            fetch('http://localhost:4000/v1/admin/deletemovie/' + this.state.movie.id, { method: 'GET', headers: myHeaders })
+              .then((response) => response.json)
+              .then((data) => {
                 if (data.error) {
                   this.setState({ alert: { type: 'alert-danger', message: data.error.message } });
                 } else {

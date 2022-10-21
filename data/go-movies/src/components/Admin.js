@@ -1,10 +1,16 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export default class Admin extends Component {
   state = { movies: [], isLoaded: false, error: null };
 
   componentDidMount() {
+    if (this.props.jwt === '') {
+      this.props.history.push({
+        pathname: '/login',
+      });
+      return;
+    }
     fetch('http://localhost:4000/v1/movies')
       //      .then((response) => response.json())
       .then((response) => {
