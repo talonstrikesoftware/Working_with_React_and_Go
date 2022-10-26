@@ -20,3 +20,7 @@ Front-matter
 
 91: Implementing GraphQL requests for all movies
 - Added a GraphQL component to list the movies and made the query from the client
+
+92: Adding a search endpoint
+- changed graphql route to be simplier
+- added a "search" graphql query to the backend `graphql.go` file
