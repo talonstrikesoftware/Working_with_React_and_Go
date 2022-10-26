@@ -19,3 +19,4 @@ Front-matter
 - Setup the code to actually do the graphql request
 
 91: Implementing GraphQL requests for all movies
+- Added a GraphQL component to list the movies and made the query from the client
