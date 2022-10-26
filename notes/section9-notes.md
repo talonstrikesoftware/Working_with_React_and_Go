@@ -16,5 +16,6 @@ Front-matter
   - defined the schema and fields
 
 90: Handling the GraphQL request
+- Setup the code to actually do the graphql request
 
 91: Implementing GraphQL requests for all movies
