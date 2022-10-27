@@ -24,3 +24,12 @@ Front-matter
 92: Adding a search endpoint
 - changed graphql route to be simplier
 - added a "search" graphql query to the backend `graphql.go` file
+
+93: Implementing GraphQL requests for search on front end
+- hooked in the search to the GraphQL.js component
+
+94: Displaying one movie using GraphQL
+95: Updating the front end
+96: Modifying the back end to handle poster images
+97: Updating the front end to display the poster image
+98: Cleaning things up
