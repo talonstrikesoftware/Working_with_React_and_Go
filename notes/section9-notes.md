@@ -69,4 +69,8 @@ Front-matter
   ```
   
 97: Updating the front end to display the poster image
+- display the posters on the front end
+- have to resave the movie entries to get it to update the poster field
+  
 98: Cleaning things up
+- 
