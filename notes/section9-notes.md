@@ -29,7 +29,14 @@ Front-matter
 - hooked in the search to the GraphQL.js component
 
 94: Displaying one movie using GraphQL
+- complete the functionality to show a single movie via graphQL
+- ultimately will render a poster image from the movie database 
+  - Will need an account
+- Basically this explains what he will do - no code
+
 95: Updating the front end
+- displaying one movie 
+- created a `OneMovieGraphQL` component
 96: Modifying the back end to handle poster images
 97: Updating the front end to display the poster image
 98: Cleaning things up
