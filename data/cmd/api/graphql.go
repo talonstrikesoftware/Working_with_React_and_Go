@@ -104,6 +104,9 @@ var movieType = graphql.NewObject(
 			"updated_at": &graphql.Field {
 				Type: graphql.DateTime,
 			},
+			"poster": &graphql.Field {
+				Type: graphql.String,
+			},
 		},
 	},
 )
@@ -116,7 +119,7 @@ func (app *application) moviesGraphQL(w http.ResponseWriter, r *http.Request) {
 	log.Println(query)
 
 	rootQuery := graphql.ObjectConfig{Name: "RootQuery", Fields: fields}
-	schemaConfig := graphql.SchemaConfig{Query: graphql.NewObjet(rootQuery)}
+	schemaConfig := graphql.SchemaConfig{Query: graphql.NewObject(rootQuery)}
 	schema, err := graphql.NewSchema(schemaConfig)
 	if err != nil {
 		app.errorJSON(w, errors.New("failed to create the schema"))
