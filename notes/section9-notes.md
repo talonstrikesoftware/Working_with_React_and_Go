@@ -73,4 +73,4 @@ Front-matter
 - have to resave the movie entries to get it to update the poster field
   
 98: Cleaning things up
-- 
+- need to debounce the search

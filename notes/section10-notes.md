@@ -1,6 +1,9 @@
 # Section 10: Deploying our app to a server
 99: Getting the React application ready for deployment
 - Runs the npm command to build the react source
+- CRA has a section on environment variables
+  - created REACT_APP_API_URL: `export REACT_APP_API='http://localhost:4000'`
+  - then can use `${process.env.REACT_APP_API_URL}`
 
 100: Building the production ready React application
 - Here is where the code is built and pushed to dist 

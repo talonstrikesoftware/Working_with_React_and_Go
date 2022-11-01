@@ -31,7 +31,7 @@ export default class OneMovieGraphQL extends Component {
     fetch('http://localhost:4000/v1/graphql', requestOptions)
       .then((response) => response.json())
       .then((data) => {
-        if (theList.length > 0) {
+        if (data) {
           this.setState({ movie: data.data.movie, isLoaded: true });
         }
       });
