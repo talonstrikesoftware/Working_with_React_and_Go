@@ -13,13 +13,16 @@ docker compose exec golang bash
 
 ### backend startup
 - in container
-- `/usr/src/app# export REACT_APP_API='http://localhost:4000'` 
-- `/usr/src/app# go run ./cmd/api` 
+  ```bash
+  export GO_MOVIES_JWT='2dce505d96a53c5768052ee90f3df2055657518dad489160df9913f66042e160'
+  go run ./cmd/api
+  ```
 
 ### client startup
 - in container
   ```bash
     export NODE_OPTIONS=--openssl-legacy-provider
+    export REACT_APP_API='http://localhost:4000'
     cd go-movies
     npm start # localhost:3000
   ```

@@ -7,9 +7,15 @@
 
 100: Building the production ready React application
 - Here is where the code is built and pushed to dist 
+- environment variables are substituted at build time so before you build you have to adjust the exported variable to what the production server needs
+- `npm run build`
+- next compress the `dist` directory (zip or tar)
   
 101: Getting the Go project ready for deployment
 - Does the same thing with the Go project
+- have to not encode the jwt secret into your code and rather pull it from the environment
+  - 
+- 
   
 102: Building the Go back end for our remote server
 - Runs the build here
