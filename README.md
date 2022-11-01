@@ -13,6 +13,7 @@ docker compose exec golang bash
 
 ### backend startup
 - in container
+- `/usr/src/app# export REACT_APP_API='http://localhost:4000'` 
 - `/usr/src/app# go run ./cmd/api` 
 
 ### client startup
