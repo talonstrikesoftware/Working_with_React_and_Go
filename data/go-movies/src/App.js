@@ -4,6 +4,7 @@ import Movies from './components/Movies';
 import Admin from './components/Admin';
 import Home from './components/Home';
 import OneMovie from './components/OneMovie';
+import OneMovieFunc from './components/OneMovieFunc';
 import Genres from './components/Genres';
 import OneGenre from './components/OneGenre';
 import EditMovie from './components/EditMovie';
@@ -92,7 +93,7 @@ export default class App extends Component {
 
             <div className='col-md-10'>
               <Switch>
-                <Route path='/movies/:id' component={OneMovie} />
+                <Route path='/movies/:id' component={OneMovieFunc} />
                 <Route path='/moviesgraphql/:id' component={OneMovieGraphQL} />
 
                 <Route path='/movies'>

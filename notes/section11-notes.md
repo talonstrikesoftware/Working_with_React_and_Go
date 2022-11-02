@@ -7,5 +7,9 @@
 - Converted Movies.js to MoviesFunc.js 
   
 109: Converting the Genres.js component to a function with hooks
+- Converted Genres.js to GenresFunc.js 
+
 110: Converting the OneMovie.js component to a function with hooks
+- Converted OneMovie.js to OneMovieFunc.js 
+  
 111: Converting the OneGenre.js component to a function with hooks
