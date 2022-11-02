@@ -9,6 +9,7 @@ import Genres from './components/Genres';
 import OneGenre from './components/OneGenre';
 import OneGenreFunc from './components/OneGenreFunc';
 import EditMovie from './components/EditMovie';
+import EditMovieFunc from './components/EditMovieFunc';
 import Login from './components/Login';
 import GraphQL from './components/GraphQL';
 import OneMovieGraphQL from './components/OneMovieGraphQL';
@@ -110,7 +111,7 @@ export default class App extends Component {
                   <GraphQL />
                 </Route>
 
-                <Route path='/admin/movie/:id' component={(props) => <EditMovie {...props} jwt={this.state.jwt} />} />
+                <Route path='/admin/movie/:id' component={(props) => <EditMovieFunc {...props} jwt={this.state.jwt} />} />
                 <Route path='/admin' component={(props) => <Admin {...props} jwt={this.state.jwt} />} />
                 <Route path='/'>
                   <Home />

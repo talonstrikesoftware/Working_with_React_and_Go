@@ -15,3 +15,11 @@
 111: Converting the OneGenre.js component to a function with hooks
 - Converted OneGenre.js to OneGenreFunc.js 
 
+112: Converting the EditMovie.js component to a function
+- Converted EditMovie.js to EditMovieFunc.js
+
+113: Challenge: convert Admin.js to a function
+
+114: Solution to challengs
+115: Convert Login.js to a function
+116: Convert App.js to a function
