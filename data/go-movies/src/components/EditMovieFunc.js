@@ -143,7 +143,7 @@ const EditMovieFunc = (props) => {
           <Alert alertType={alert.type} alertMessage={alert.message} />
           <hr />
           <form onSubmit={handleSubmit}>
-            <input type='hidden' name='id' id='id' value={movie.id} onChange={handleChange} />
+            <input type='hidden' name='id' id='id' value={movie.id} onChange={handleChange('id')} />
             <Input
               title={'Title'}
               type={'text'}

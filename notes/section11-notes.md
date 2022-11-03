@@ -19,6 +19,7 @@
 - Converted EditMovie.js to EditMovieFunc.js
 
 113: Challenge: convert Admin.js to a function
+- Should be simple convert Admin.js to AdminFunc.js
 
 114: Solution to challengs
 115: Convert Login.js to a function
