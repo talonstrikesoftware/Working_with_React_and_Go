@@ -21,6 +21,10 @@
 113: Challenge: convert Admin.js to a function
 - Should be simple convert Admin.js to AdminFunc.js
 
-114: Solution to challengs
+114: Solution to challenge
+- implemented his solution
+  
 115: Convert Login.js to a function
+- Converted Login.js to LoginFunc.js
+  
 116: Convert App.js to a function

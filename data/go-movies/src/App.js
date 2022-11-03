@@ -12,6 +12,7 @@ import OneGenreFunc from './components/OneGenreFunc';
 import EditMovie from './components/EditMovie';
 import EditMovieFunc from './components/EditMovieFunc';
 import Login from './components/Login';
+import LoginFunc from './components/LoginFunc';
 import GraphQL from './components/GraphQL';
 import OneMovieGraphQL from './components/OneMovieGraphQL';
 import MoviesFunc from './components/MoviesFunc';
@@ -104,7 +105,7 @@ export default class App extends Component {
                 </Route>
                 <Route path='/genre/:id' component={OneGenreFunc} />
 
-                <Route exact path='/login' component={(props) => <Login {...props} handleJWTChange={this.handleJWTChange} />} />
+                <Route exact path='/login' component={(props) => <LoginFunc {...props} handleJWTChange={this.handleJWTChange} />} />
                 <Route exact path='/genres'>
                   <GenresFunc />
                 </Route>
