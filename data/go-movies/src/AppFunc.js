@@ -1,52 +1,51 @@
-import React, { Component, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-//import Movies from './components/Movies';
-//import Admin from './components/Admin';
 import AdminFunc from './components/AdminFunc';
 import Home from './components/Home';
-//import OneMovie from './components/OneMovie';
 import OneMovieFunc from './components/OneMovieFunc';
-//import Genres from './components/Genres';
-//import OneGenre from './components/OneGenre';
 import OneGenreFunc from './components/OneGenreFunc';
-//import EditMovie from './components/EditMovie';
 import EditMovieFunc from './components/EditMovieFunc';
-//import Login from './components/Login';
 import LoginFunc from './components/LoginFunc';
 import GraphQL from './components/GraphQL';
 import OneMovieGraphQL from './components/OneMovieGraphQL';
 import MoviesFunc from './components/MoviesFunc';
 import GenresFunc from './components/GenresFunc';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      jwt: '',
-    };
-    this.handleJWTChange(this.handleJWTChange.bind(this));
-  }
+const AppFunc = (props) => {
+  const [jwt, setJWT] = useState('');
 
-  componentDidMount() {
+  useEffect(() => {
     let t = window.localStorage.getItem("jwt");
     if (t) {
-      if (this.state.jwt === "") {
-        this.setState({jwt: JSON.parse(t)});
+      if (jwt === "") {
+        setJWT(JSON.parse(t));
       }
     }
-  }
-  handleJWTChange = (jwt) => {
-    this.setState({ jwt: jwt });
+  },[jwt])
+
+  const handleJWTChange = (jwt) => {
+    setJWT(jwt);
   };
 
-  logout = () => {
-    this.setState({ jwt: '' });
+  const logout = () => {
+    setJWT('');
     // clear local storage as well
     window.localStorage.removeItem("jwt");
   };
 
-  render() {
-    return (
+  let loginLink;
+  if (jwt === "") {
+    loginLink = <Link to='/login'>Login</Link>
+  }
+  else {
+    loginLink = (
+                <Link to='logout' onClick={logout}>
+                  Logout
+                </Link>
+
+    )
+  }
+  return (
       <Router>
         <div className='container'>
           <div className='row'>
@@ -54,13 +53,7 @@ export default class App extends Component {
               <h1 className='mt-3'>Go Watch a Movie!</h1>
             </div>
             <div className='col mt-3 text-end'>
-              {this.state.jwt === '' ? (
-                <Link to='/login'>Login</Link>
-              ) : (
-                <Link to='logout' onClick={this.logout}>
-                  Logout
-                </Link>
-              )}
+              {loginLink}
             </div>
             <hr className='mb-3'></hr>
           </div>
@@ -78,7 +71,7 @@ export default class App extends Component {
                   <li className='list-group-item'>
                     <Link to='/genres'>Genres</Link>
                   </li>
-                  {this.state.jwt !== '' && (
+                  {jwt !== '' && (
                     <Fragment>
                       <li className='list-group-item'>
                         <Link to='/admin/movie/0'>Add movie</Link>
@@ -105,7 +98,7 @@ export default class App extends Component {
                 </Route>
                 <Route path='/genre/:id' component={OneGenreFunc} />
 
-                <Route exact path='/login' component={(props) => <LoginFunc {...props} handleJWTChange={this.handleJWTChange} />} />
+                <Route exact path='/login' component={(props) => <LoginFunc {...props} handleJWTChange={handleJWTChange} />} />
                 <Route exact path='/genres'>
                   <GenresFunc />
                 </Route>
@@ -113,8 +106,8 @@ export default class App extends Component {
                   <GraphQL />
                 </Route>
 
-                <Route path='/admin/movie/:id' component={(props) => <EditMovieFunc {...props} jwt={this.state.jwt} />} />
-                <Route path='/admin' component={(props) => <AdminFunc {...props} jwt={this.state.jwt} />} />
+                <Route path='/admin/movie/:id' component={(props) => <EditMovieFunc {...props} jwt={jwt} />} />
+                <Route path='/admin' component={(props) => <AdminFunc {...props} jwt={jwt} />} />
                 <Route path='/'>
                   <Home />
                 </Route>
@@ -124,5 +117,7 @@ export default class App extends Component {
         </div>
       </Router>
     );
-  }
+
 }
+
+export default AppFunc;

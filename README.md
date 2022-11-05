@@ -22,7 +22,7 @@ docker compose exec golang bash
 - in container
   ```bash
     export NODE_OPTIONS=--openssl-legacy-provider
-    export REACT_APP_API='http://localhost:4000'
+    export REACT_APP_API_URL='http://localhost:4000'
     cd go-movies
     npm start # localhost:3000
   ```

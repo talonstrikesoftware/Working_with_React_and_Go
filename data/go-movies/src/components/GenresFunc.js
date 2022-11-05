@@ -22,7 +22,7 @@ const GenresFunc = (props) => {
       });
   },[]);
 
-  if (errors !== null) {
+  if (error !== null) {
     return (
             <div>Error: {error.message}</div>
     )

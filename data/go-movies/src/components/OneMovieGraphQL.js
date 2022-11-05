@@ -65,9 +65,9 @@ export default class OneMovieGraphQL extends Component {
           </div>
           <div className='float-end'>
             {movie.genres.map((m, index) => {
-              <span className='badge bg-secondary me-1' key={index}>
+              return (<span className='badge bg-secondary me-1' key={index}>
                 {m}
-              </span>;
+              </span>);
             })}
           </div>
           <div className='clearfix'></div>

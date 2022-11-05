@@ -4,17 +4,18 @@ import { Link } from 'react-router-dom';
 const MoviesFunc = (props) => {
 
   const [movies, setMovies] = useState([]);
-  const [errors, setErrors] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+//    fetch(`${process.env.REACT_APP_API_URL}/v1/movies`)
     fetch(`${process.env.REACT_APP_API_URL}/v1/movies`)
       .then((response) => {
         console.log('Status code is', response.status);
         if (response.status !== 200) {
-          setErrors('Invalid response code: ' + response.status);
+          setError('Invalid response code: ' + response.status);
         }
         else {
-          setErrors(null);
+          setError(null);
         }
         return response.json();
       })

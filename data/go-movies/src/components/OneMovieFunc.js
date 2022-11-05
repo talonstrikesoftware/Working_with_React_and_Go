@@ -43,7 +43,7 @@ const OneMovieFunc = (props) => {
             </div>
             <div className="float-end">
                 {movie.genres.map((m, index) => {
-                    <span className="badge bg-secondary me-1" key={index}>{m}</span>
+                    return <span className="badge bg-secondary me-1" key={index}>{m}</span>
                 })}
 
             </div>

@@ -5,7 +5,7 @@ import Alert from './ui-components/Alert';
 const LoginFunc = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+//  const [error, setError] = useState(null);
   const [errors, setErrors] = useState([]);
   const [alert, setAlert] = useState({type: 'd-none', message: ''});
 

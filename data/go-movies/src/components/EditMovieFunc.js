@@ -34,7 +34,7 @@ const EditMovieFunc = (props) => {
     if (id > 0) {
       fetch(`${process.env.REACT_APP_API_URL}/v1/movie/` + id)
         .then((response) => {
-          if (response.statusText !== 200) {
+          if (response.status !== 200) {
             setError('Invalid response code: ' + response.status);
           }
           else {
@@ -111,7 +111,7 @@ const EditMovieFunc = (props) => {
             const myHeaders = new Headers();
             myHeaders.append('Content-Type', 'application/json');
             myHeaders.append('Authorization', 'Bearer ' + props.jwt);
-            fetch(`${process.env.REACT_APP_API_URL}/v1/admin/deletemovie/` + state.movie.id, { method: 'GET', headers: myHeaders })
+            fetch(`${process.env.REACT_APP_API_URL}/v1/admin/deletemovie/` + movie.id, { method: 'GET', headers: myHeaders })
               .then((response) => response.json)
               .then((data) => {
                 if (data.error) {
@@ -143,29 +143,29 @@ const EditMovieFunc = (props) => {
           <Alert alertType={alert.type} alertMessage={alert.message} />
           <hr />
           <form onSubmit={handleSubmit}>
-            <input type='hidden' name='id' id='id' value={movie.id} onChange={handleChange('id')} />
+            <input type='hidden' name='id' id='id' value={movie.id} onChange={handleChange} />
             <Input
               title={'Title'}
               type={'text'}
               name={'title'}
               value={movie.title}
-              handleChange={handleChange('title')}
+              handleChange={handleChange}
               className={hasError('title') ? 'is-invalid' : ''}
               errorDiv={hasError('title') ? 'text-danger' : 'd-none'}
               errorMsg={'Please enter a title'}
             />
             <Input title={'Release date'} type={'text'} name={'release_date'} value={movie.release_date} handleChange={handleChange} />
-            <Input title={'Runtime'} type={'text'} name={'runtime'} value={movie.runtime} handleChange={handleChange('runtime')} />
+            <Input title={'Runtime'} type={'text'} name={'runtime'} value={movie.runtime} handleChange={handleChange} />
             <Select
               title={'MPAA Rating'}
               name={'mpaa_rating'}
               options={mpaaOptions}
               value={movie.mpaa_rating}
-              handleChange={handleChange('mpaa_rating')}
+              handleChange={handleChange}
               placeholder={'Choose...'}
             />
-            <Input title={'Rating'} type={'text'} name={'rating'} value={movie.rating} handleChange={handleChange('rating')} />
-            <Textarea title={'Description'} name={'description'} rows={3} value={movie.description} handleChange={handleChange('description')} />
+            <Input title={'Rating'} type={'text'} name={'rating'} value={movie.rating} handleChange={handleChange} />
+            <Textarea title={'Description'} name={'description'} rows={3} value={movie.description} handleChange={handleChange} />
             <hr />
             <button className='btn btn-primary'>Save</button>
             <Link to='/admin' className='btn btn-warning ms-1'>

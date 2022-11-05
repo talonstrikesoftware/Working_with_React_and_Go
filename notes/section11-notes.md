@@ -28,3 +28,10 @@
 - Converted Login.js to LoginFunc.js
   
 116: Convert App.js to a function
+- Converted App.js to AppFunc.js
+- The final bit is to update index.js to use AppFunc.js
+
+Section 12: Where to go from here
+
+117: React and Redux
+- goes over why you might want to use Redux
